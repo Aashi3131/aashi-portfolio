@@ -826,3 +826,84 @@ body {
     align-items: flex-start;
   }
 }
+
+/* Soot sprites */
+
+/* Soot bunny cursor trail */
+
+.soot-sprite img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  animation: soot-float 1.8s ease-in-out infinite;
+}
+.soot-sprite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 23px;
+  height: 23px;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.soot-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 48% 52% 46% 54% / 52% 45% 55% 48%;
+  background: #171513;
+
+  box-shadow:
+    0 -3px 0 0 #171513,
+    4px -2px 0 0 #171513,
+    -4px -2px 0 0 #171513,
+    6px 2px 0 -1px #171513,
+    -6px 2px 0 -1px #171513,
+    3px 5px 0 -1px #171513,
+    -3px 5px 0 -1px #171513,
+    0 0 2px 1px rgba(23, 21, 19, 0.35);
+
+  filter: drop-shadow(0 1px 1px rgba(23, 21, 19, 0.12));
+
+  animation: soot-float 1.8s ease-in-out infinite;
+}
+
+.soot-body i {
+  position: absolute;
+  top: 8px;
+  width: 4px;
+  height: 5px;
+  background: #fffdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.soot-body i:first-child {
+  left: 6px;
+}
+
+.soot-body i:last-child {
+  right: 6px;
+}
+
+@keyframes soot-float {
+  0%,
+  100% {
+    margin-top: 0;
+    transform: rotate(-5deg);
+  }
+  50% {
+    margin-top: -5px;
+    transform: rotate(5deg);
+  }
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .soot-sprite {
+    display: none;
+  }
+}
